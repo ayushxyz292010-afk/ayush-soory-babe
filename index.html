@@ -1,1 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Sorry Mera Baccha 🥹❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial, sans-serif;
+
+    background:
+    radial-gradient(circle at 20% 20%, #ffd1e3, transparent 30%),
+    radial-gradient(circle at 80% 80%, #ff9fc5, transparent 35%),
+    linear-gradient(135deg,#ffb6d2,#ff77ad,#e94d8d);
+
+    color:white;
+}
+
+/* Soft glowing hearts in background */
+.bg-heart{
+    position:absolute;
+    color:rgba(255,255,255,.35);
+    font-size:30px;
+    animation:float 6s infinite ease-in-out;
+}
+
+.card{
+    width:90%;
+    max-width:430px;
+    padding:35px 25px;
+    text-align:center;
+    z-index:5;
+
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.45);
+    border-radius:32px;
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+    0 15px 50px rgba(150,20,80,.25),
+    inset 0 0 30px rgba(255,255,255,.15);
+
+    animation:appear 1.2s ease;
+}
+
+h1{
+    font-size:40px;
+    margin-bottom:22px;
+    color:white;
+    text-shadow:0 0 15px #ff4f91;
+}
+
+.message{
+    font-size:17px;
+    line-height:1.8;
+    color:#fff8fb;
+}
+
+.highlight{
+    font-weight:bold;
+    color:#fff;
+    text-shadow:0 0 8px #ff3f87;
+}
+
+button{
+    margin-top:25px;
+    padding:14px 30px;
+    border:none;
+    border-radius:30px;
+
+    background:linear-gradient(45deg,#ff347d,#ff75a8);
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+
+    box-shadow:0 0 22px rgba(255,40,120,.55);
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+}
+
+.hidden{
+    display:none;
+}
+
+.final{
+    margin-top:25px;
+    font-size:21px;
+    font-weight:bold;
+    color:white;
+    animation:fade 1s ease;
+}
+
+.love{
+    margin-top:15px;
+    font-size:22px;
+    color:#fff;
+    text-shadow:0 0 12px #ff2878;
+}
+
+.heart{
+    position:absolute;
+    bottom:-30px;
+    color:#fff;
+    animation:heartFloat 5s linear forwards;
+    pointer-events:none;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:scale(.75) translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes heartFloat{
+    0%{
+        transform:translateY(0) scale(.7);
+        opacity:0;
+    }
+    15%{opacity:1;}
+    100%{
+        transform:translateY(-110vh) scale(1.3);
+        opacity:0;
+    }
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0) rotate(-8deg);
+    }
+    50%{
+        transform:translateY(-25px) rotate(8deg);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background hearts -->
+<div class="bg-heart" style="top:10%;left:10%;">♡</div>
+<div class="bg-heart" style="top:20%;right:10%;">♡</div>
+<div class="bg-heart" style="bottom:15%;left:8%;">♡</div>
+<div class="bg-heart" style="bottom:10%;right:12%;">♡</div>
+
+<div class="card">
+
+    <h1>Sorry 🥹❤️</h1>
+
+    <div class="message">
+
+        <span class="highlight">
+        Sorry mera baccha 🥺
+        </span>
+
+        <br><br>
+
+        Kya hua hai aapko? 🥹
+        <br>
+        Kya mere jaldi so jaane se gussa ho?
+        <br>
+        Ya koi aur baat hai? 🥺
+
+        <br><br>
+
+        <span class="highlight">
+        Sorry babe 🥹❤️
+        </span>
+
+        <br><br>
+
+        Neend aa jaati hai...
+        <br>
+        4 ghante hi milte hain sone ke liye 🥺
+        <br>
+        Isliye kabhi-kabhi jaldi neend aa jaati hai.
+
+        <br><br>
+
+        Mera aapko hurt karne ka
+        bilkul bhi intention nahi tha 🥹
+
+        <br><br>
+
+        <span class="highlight">
+        Maaf kar do na... 🥺❤️
+        </span>
+
+    </div>
+
+    <button onclick="showLove()">
+        Please click karo 🥹❤️
+    </button>
+
+    <div id="final" class="final hidden">
+
+        Please gussa mat raho na... 🥺
+
+        <div class="love">
+            I love you<br>
+            Meri pyaari si jaan 😚❤️
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function showLove(){
+
+    document.getElementById("final")
+    .classList.remove("hidden");
+
+    for(let i=0;i<35;i++){
+
+        let heart=document.createElement("div");
+
+        heart.className="heart";
+        heart.innerHTML="❤️";
+
+        heart.style.left =
+            Math.random()*100+"vw";
+
+        heart.style.animationDuration =
+            (3+Math.random()*4)+"s";
+
+        heart.style.fontSize =
+            (15+Math.random()*20)+"px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },7000);
+    }
+}
+
+</script>
+
+</body>
+</html>
